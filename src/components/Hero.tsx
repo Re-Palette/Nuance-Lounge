@@ -4,6 +4,8 @@ import { Sparkles, HelpCircle, Info, Calendar } from "lucide-react";
 import EventCard from "./EventCard";
 import CTAButton from "./CTAButton";
 import { heroData } from "../data/heroData";
+import heroDesignMock from "../assets/images/hero_design_mock.png";
+import heroDesignMockMobile from "../assets/images/hero_design_mock_mobile.png";
 
 interface HeroProps {
   onCtaClick: () => void;
@@ -33,18 +35,12 @@ export default function Hero({ onCtaClick }: HeroProps) {
         {/* Desktop Image */}
         <div className="absolute inset-x-0 top-16 bottom-0 z-0 pointer-events-none select-none overflow-hidden">
           <img
-            src="/src/assets/images/hero_design_mock.png"
+            src={heroDesignMock}
             alt="User supplied design mockup background"
             className="w-full h-full object-fill object-top opacity-100"
             onError={(e) => {
               const img = e.currentTarget;
-              if (img.src.endsWith('.png')) {
-                img.src = '/src/assets/images/hero_design_mock.jpg';
-              } else if (img.src.endsWith('.jpg')) {
-                img.src = '/src/assets/images/hero_design_mock.jpeg';
-              } else {
-                img.style.display = 'none';
-              }
+              img.style.display = 'none';
             }}
           />
         </div>
@@ -101,16 +97,12 @@ export default function Hero({ onCtaClick }: HeroProps) {
         {/* Mobile Mockup Design Image (Full screen width, edge-to-edge, beautifully aligned below header) */}
         <div className="w-full select-none pointer-events-none mb-8">
           <img
-            src="/src/assets/images/hero_design_mock_mobile.png"
+            src={heroDesignMockMobile}
             alt="Nuance Lounge Concept"
             className="w-full h-auto block"
             onError={(e) => {
               const img = e.currentTarget;
-              if (img.src.endsWith('.png')) {
-                img.src = '/src/assets/images/hero_design_mock_mobile.jpg';
-              } else if (img.src.endsWith('.jpg')) {
-                img.src = '/src/assets/images/hero_design_mock_mobile.jpeg';
-              }
+              img.style.display = 'none';
             }}
           />
         </div>
